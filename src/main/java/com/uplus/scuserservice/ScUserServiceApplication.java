@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -18,5 +19,10 @@ public class ScUserServiceApplication {
 	@Bean  // BCryptPasswordEncoder 클래스 Autowired처리위해서 사전에 Bean등록
 	public BCryptPasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	public RestTemplate getRestTemplate(){
+		return new RestTemplate();
 	}
 }
